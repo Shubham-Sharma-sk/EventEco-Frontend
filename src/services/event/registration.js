@@ -7,7 +7,7 @@ export function registerUser(eventname,firstname,lastname,phonenumber,gender,per
         const toastId = toast.loading("Loading...")
         console.log("Service Called")
         try {
-            const response = await apiConnector("POST", 'http://localhost:4000/dashboard/addperson', {eventname,firstname,lastname,phonenumber,gender,personemail,designation,email, checkUserPresent: true, })
+            const response = await apiConnector("POST", 'https://api.eventeco.online/dashboard/addperson', {eventname,firstname,lastname,phonenumber,gender,personemail,designation,email, checkUserPresent: true, })
             if (!response.data.success) {
                 throw new Error(response.data.msg)
             }
@@ -26,7 +26,7 @@ export function registerEvent(organizerName, eventname, organizerEmail, date, ti
         const toastId = toast.loading("Loading...")
         console.log("Service Called")
         try {
-            const response = await apiConnector("POST", 'http://localhost:4000/dashboard/registerevent', { organizerName, eventname, organizerEmail, date, time, categories, venue, description, email, checkUserPresent: true, })
+            const response = await apiConnector("POST", 'https://api.eventeco.online/dashboard/registerevent', { organizerName, eventname, organizerEmail, date, time, categories, venue, description, email, checkUserPresent: true, })
             if (!response.data.success) {
                 throw new Error(response.data.msg)
             }
@@ -45,7 +45,7 @@ export function registerAuthorities(eventName,authId,authLocation,authPassword,a
         const toastId = toast.loading("Loading...")
         console.log("Service Called")
         try {
-            const response = await apiConnector("POST", 'http://localhost:4000/dashboard/registerauth', {eventName, authId,authLocation,authPassword,authDesignation,email, checkUserPresent: true, })
+            const response = await apiConnector("POST", 'https://api.eventeco.online/dashboard/registerauth', {eventName, authId,authLocation,authPassword,authDesignation,email, checkUserPresent: true, })
             if (!response.data.success) {
                 throw new Error(response.data.msg)
             }
@@ -63,7 +63,7 @@ export function registerAuthorities(eventName,authId,authLocation,authPassword,a
 export async function findallData(setallData, setLoading,email) {
     try {
         setLoading(true);
-        const response = await apiConnector("GET",`http://localhost:4000/dashboard/alleventData?email=${email}`);
+        const response = await apiConnector("GET",`https://api.eventeco.online/dashboard/alleventData?email=${email}`);
 
         if (!response.data.success) {
             setLoading(false);
@@ -87,7 +87,7 @@ export async function findallData(setallData, setLoading,email) {
 export async function resallData(setallData, setLoading,setData, setRecords,email) {
     try {
         setLoading(true);
-        const response = await apiConnector("GET",`http://localhost:4000/dashboard/resalldata?email=${email}`);
+        const response = await apiConnector("GET",`https://api.eventeco.online/dashboard/resalldata?email=${email}`);
 
         if (!response.data.success) {
             setLoading(false);
@@ -114,7 +114,7 @@ export async function resallData(setallData, setLoading,setData, setRecords,emai
 export async function authallData(setallData, setLoading,setData, setRecords,email) {
     try {
         setLoading(true);
-        const response = await apiConnector("GET",`http://localhost:4000/dashboard/authalldata?email=${email}`);
+        const response = await apiConnector("GET",`https://api.eventeco.online/dashboard/authalldata?email=${email}`);
 
         if (!response.data.success) {
             setLoading(false);
@@ -142,7 +142,7 @@ export function checkticket(codedata, ) {
         const toastId = toast.loading("Loading...")
         console.log("Service Called")
         try {
-            const response = await apiConnector("POST", 'http://localhost:4000/dashboard/checkticket', {codedata, checkUserPresent: true, })
+            const response = await apiConnector("POST", 'https://api.eventeco.online/dashboard/checkticket', {codedata, checkUserPresent: true, })
             if (!response.data.success) {
                 throw new Error(response.data.msg)
             }
@@ -165,7 +165,7 @@ export function addhomeData(name,email,subject,massage, navigate) {
         const toastId = toast.loading("Loading...")
         console.log("Service Called")
         try {
-            const response = await apiConnector("POST", 'http://localhost:4000/dashboard/addhomedata', {name,email,subject,massage, checkUserPresent: true, })
+            const response = await apiConnector("POST", 'https://api.eventeco.online/dashboard/addhomedata', {name,email,subject,massage, checkUserPresent: true, })
             if (!response.data.success) {
                 throw new Error(response.data.msg)
             }
@@ -186,7 +186,7 @@ export function addhomeMail(subInput, navigate) {
         const toastId = toast.loading("Loading...")
         console.log("Service Called")
         try {
-            const response = await apiConnector("POST", 'http://localhost:4000/dashboard/addsubmail', {subInput, checkUserPresent: true, })
+            const response = await apiConnector("POST", 'https://api.eventeco.online/dashboard/addsubmail', {subInput, checkUserPresent: true, })
             if (!response.data.success) {
                 throw new Error(response.data.msg)
             }
