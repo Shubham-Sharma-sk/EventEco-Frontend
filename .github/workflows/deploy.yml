@@ -61,4 +61,5 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: | 
             cd /var/www/EventEco-Frontend/
-            sudo pm2 start src/App.js  
+            sudo pm2 restart src/App.js  
+            pm2 save 
